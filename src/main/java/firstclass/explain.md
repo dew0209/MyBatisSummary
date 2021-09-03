@@ -16,7 +16,7 @@ mybatis的快速开始
   添加MyBatis的配置文件
   场景介绍
   编写实体类，mapper接口以及mapper.xml文件
-	编写实例代码
+	
 ```
 
 ```sql
@@ -36,5 +36,12 @@ INSERT INTO `t_user` VALUES ('1', 'lison', '李小宇', '1', '186995587411', 'li
 INSERT INTO `t_user` VALUES ('2', 'james', '陈大雷', '1', '17365987455', 'james@qq.com', 'james的备注', '2');
 INSERT INTO `t_user` VALUES ('3', 'cindy', '王美丽', '2', '18695988747', 'xxoo@163.com', 'cindy\'s note', '1');
 INSERT INTO `t_user` VALUES ('32', 'mark', '毛毛', '1', '18695988747', 'xxoo@163.com', 'mark\'s note', '1');
+```
+
+```xml
+SqlSessionFactoryBuilder:读取配置信息，创建SqlSessionFactory。建造者模式。方法级别声明周期。
+SqlSessionFactory：创建SqlSession，工厂单例模式，存在于程序的整个生命周期。
+SqlSession：代表一次数据库连接，可以直接发送SQL执行，也可以通过调用Mapper访问数据库；线程不安全，要保证线程独享（方法级）
+SQL Mapper：由一个Java接口和XML文件组成，包含了要执行的SQL语句和结果集映射规则。方法级别生命周期。
 ```
 
