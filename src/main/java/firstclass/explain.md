@@ -45,3 +45,12 @@ SqlSession：代表一次数据库连接，可以直接发送SQL执行，也可�
 SQL Mapper：由一个Java接口和XML文件组成，包含了要执行的SQL语句和结果集映射规则。方法级别生命周期。
 ```
 
+配置[settings]
+
+```xml
+enviorment元素是配置一个数据源的开始，属性id是它唯一标识
+  transactionManager元素配置数据事物。[jdbc|manages|自定义]
+  dataSource元素配置数据源连接信息。[UNPOOLED|POOLED|JNDI|自定义数据源]
+
+```
+

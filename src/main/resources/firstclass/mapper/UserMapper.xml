@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="firstclass.mapper.UserMapper">
-    <select id="getUserByPrimaryKey" parameterType="int" resultType="firstclass.bean.User">
+    <!--
+        select：查询语句
+        insert：插入语句
+        update：更新语句
+        delete：删除语句
+        sql：允许定义一部分的SQL，然后在各个地方引用它
+        parameterMap：定义参数映射关系
+        resultMap：用来描述从数据库结果集中来加载对象
+        cache：给定命名空间的缓存配置
+        cache-ref：其它命名空间缓存的配置的引用
+    -->
+    <!--
+        databaseId:
+           在多了一个databaseId属性的情况下，MyBatis将提供如下规则：
+                如果没有配置databaseIdProvider标签，那么databaseId将会返回null
+                如果配置了databaseIdProvider标签，MyBatis就会用配置的name值去匹配数据库信息，如果匹配的上就会设置databaseId，否则依旧为null
+                如果Configuration的databaseId不为空，则它只会找到配置databaseId的SQL语句。
+                MyBatis会加载不带databaseId属性和带有匹配当前数据库databaseId属性的所有语句。如果同时找到带有databaseId和不带databaseId的相同语句，则后者会被舍弃
+    -->
+    <select id="getUserByPrimaryKey" parameterType="int" resultType="firstclass.bean.User" databaseId="mysql">
+        /**
+        不加别名可以和驼峰配合使用[mapUnderscoreToCamelCase]
+         */
         select
             id,
-            user_name userName,
-            real_name realName,
+            user_name,
+            real_name,
             sex sex,
             mobile,
             email,
@@ -15,4 +37,5 @@
         where
             id = #{id,jdbcType=INTEGER}
     </select>
+
 </mapper>
