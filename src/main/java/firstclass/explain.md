@@ -51,6 +51,5 @@ SQL Mapper：由一个Java接口和XML文件组成，包含了要执行的SQL语
 enviorment元素是配置一个数据源的开始，属性id是它唯一标识
   transactionManager元素配置数据事物。[jdbc|manages|自定义]
   dataSource元素配置数据源连接信息。[UNPOOLED|POOLED|JNDI|自定义数据源]
-
 ```
 
