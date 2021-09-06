@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="secondclass.mapper.TJobHistoryMapper">
+    <resultMap id="BaseResultMap" type="TJobHistory">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="user_id" property="userId" jdbcType="INTEGER" />
+        <result column="comp_name" property="compName" jdbcType="VARCHAR" />
+        <result column="years" property="years" jdbcType="INTEGER" />
+        <result column="title" property="title" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        id,user_id,comp_name,years,title
+    </sql>
+    <select id="selectByUserId" resultMap="BaseResultMap" parameterType="INTEGER">
+        select
+            <include refid="Base_Column_List" />
+        from t_job_history
+        where user_id = #{userId,jdbcType=INTEGER};
+    </select>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="INTEGER">
+        select
+            <include refid="Base_Column_List" />
+        from t_job_history
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="deleteByPrimaryKey" parameterType="INTEGER">
+        delete
+            from t_job_history
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <insert id="insert" parameterType="TJobHistory">
+        insert
+            into t_job_history(id,user_id,comp_name,years,title)
+        values (#{id,jdbcType=INTEGER},#{userId,jdbcType=INTEGER},#{compName,jdbcType=VARCHAR},#{years,jdbcType=VARCHAR},
+                #{title,jdbcType=VARCHAR})
+    </insert>
+    <update id="updateByPrimaryKey" parameterType="TJobHistory">
+        update
+            t_job_history
+        set
+            user_id = #{userId,jdbcType=INTEGER},
+            comp_name = #{compName,jdbcType=VARCHAR},
+            years = #{years,jdbcType=INTEGER},
+            title = #{title,jdbcType=INTEGER}
+            where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
