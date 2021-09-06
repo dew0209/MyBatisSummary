@@ -27,6 +27,29 @@ parameterMap：即将废弃
 flushCache：它的作用是在调用sql后，是否要求MyBatis清空之前查询的本地缓存和二级缓存。
 timeout：设置超时参数，等超时的时候将抛出异常，单位为秒。
 statementType：告诉MyBatis使用哪个JDBC的Statement工作。
-keyProperty：表示以哪个列作为属性的主键。不能和keyColumn同时使用
+keyProperty：表示以哪个列作为属性的主键。不能和keyColumn同时使用[这个好像不对，好像可以一起使用，测试没有两个其中之一也是，不知道可是机器问题]
+useGeneratedKeys：使用JDBC来获取数据库内部生成的主键。
+keyColunm：指明第几列是主键，不能和keyColunm同时使用，只接受整形参数。[有点问题]
+databaseId：提供多种数据库的支持
+lang：自定义语言，可使用第三方语言。
 ```
+
+resultMap元素
+
+```xml
+		<resultMap>
+        <constructor>
+            <idArg />
+            <arg />
+        </constructor>
+        <id />
+        <result />
+        <association />
+        <discriminator />
+            <case />
+        </discriminator>
+    </resultMap>
+```
+
+
 

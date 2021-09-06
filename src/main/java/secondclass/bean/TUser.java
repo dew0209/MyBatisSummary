@@ -13,6 +13,14 @@ public class TUser {
     private Integer positionId;
     private List<TJobHistory> jobs;
 
+    public TUser() {
+    }
+
+    public TUser(Integer id, String userName) {
+        this.id = id;
+        this.userName = userName;
+    }
+
     public void setUserName(String userName) {
         this.userName = userName;
     }

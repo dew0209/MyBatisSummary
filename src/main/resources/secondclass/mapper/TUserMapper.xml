@@ -2,11 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="secondclass.mapper.TUserMapper">
     <resultMap id="BaseResultMap" type="TUser">
+        <!--<constructor>
+            <idArg column="id" javaType="int" />
+            <arg column="user_name" javaType="String" />
+        </constructor>-->
+        <!--
+            id和result属性：
+                property：映射列结果的字段或者属性
+                column：SQL的列
+                javaTYpe：配置的Java的类型
+                jdbcType：配置数据库类型
+                typeHandler：类型处理器
+        -->
         <id column="id" property="id" jdbcType="INTEGER" />
         <result column="user_name" property="userName" jdbcType="VARCHAR" />
         <result column="real_name" property="realName" jdbcType="VARCHAR" />
         <result column="position_id" property="positionId" jdbcType="INTEGER" />
     </resultMap>
+
     <sql id="Base_Column_List">
         id,user_name,real_name,sex,mobile,email,note,position_id
     </sql>
@@ -37,6 +50,10 @@
         where a.sex = #{sex}
         order by ${orderStr}
     </select>
+    <!--
+        正如你所看到的，我们可以传入一个简单的参数，比如int,double等，也可以传入JavaBean。有时候我们需要处理一些特殊的情况，我们可以指定特定的类型，以确定使用哪个typeHandler处理它们
+        #{age,jdbcType=INTEGER,javaType=int,typeHandler=xxx]
+    -->
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="int">
         select
             <include refid="Base_Column_List" />
