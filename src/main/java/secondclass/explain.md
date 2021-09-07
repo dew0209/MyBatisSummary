@@ -51,5 +51,5 @@ resultMap元素
     </resultMap>
 ```
 
-
+constructor元素用于配置构造方法。
 
