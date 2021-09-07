@@ -61,7 +61,7 @@
 		from t_user a
 	</select>
 
-
+    <!--ofType指的是集合中存储元素的类型-->
     <resultMap id="userAndJobs1" extends="BaseResultMap" type="TUser">
         <collection property="jobs"
                     ofType="TJobHistory" >
