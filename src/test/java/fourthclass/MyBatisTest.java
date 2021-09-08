@@ -87,4 +87,11 @@ public class MyBatisTest {
             System.out.println(tUser);
         }
     }
+    /**
+     * example类
+     */
+    @Test
+    public void test05() {
+
+    }
 }

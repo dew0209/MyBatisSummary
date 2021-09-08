@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="thirdlyclass.mapper.TUserMapper">
 
-    <!-- 	<cache></cache> -->
+     	<cache></cache>
 
     <resultMap id="BaseResultMap" type="TUser">
 
@@ -114,7 +114,6 @@
     </resultMap>
 
     <resultMap id="userAndHealthReport" extends="BaseResultMap" type="TUser">
-
         <discriminator column="sex"  javaType="int">
             <case value="1" resultMap="userAndHealthReportMale"/>
             <case value="2" resultMap="userAndHealthReportFemale"/>

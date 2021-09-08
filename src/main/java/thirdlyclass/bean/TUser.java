@@ -1,8 +1,9 @@
 package thirdlyclass.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class TUser {
+public class TUser implements Serializable {
     private Integer id;
     private String userName;
     private String realName;
